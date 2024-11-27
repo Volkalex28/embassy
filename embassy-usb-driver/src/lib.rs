@@ -54,6 +54,12 @@ impl From<EndpointAddress> for u8 {
     }
 }
 
+impl core::fmt::LowerHex for EndpointAddress {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+        core::fmt::LowerHex::fmt(&self.0, f)
+    }
+}
+
 impl EndpointAddress {
     const INBITS: u8 = 0x80;
 
